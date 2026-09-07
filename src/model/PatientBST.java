@@ -57,6 +57,43 @@ public class PatientBST {
         return searchPatient(node.right, patientId);
     }
 
+    public void delete(int patientId) {
+        root = deletePatient(root, patientId);
+    }
+
+    private Node deletePatient(Node node, int patientId) {
+
+        if (node == null) {
+            return null;
+        }
+
+        if (patientId < node.patient.patientId) {
+            node.left = deletePatient(node.left, patientId);
+        } else if (patientId > node.patient.patientId) {
+            node.right = deletePatient(node.right, patientId);
+        } else {
+
+            if (node.left == null) {
+                return node.right;
+            }
+
+            if (node.right == null) {
+                return node.left;
+            }
+
+            Node smallest = node.right;
+
+            while (smallest.left != null) {
+                smallest = smallest.left;
+            }
+
+            node.patient = smallest.patient;
+            node.right = deletePatient(node.right, smallest.patient.patientId);
+        }
+
+        return node;
+    }
+
     public void display() {
         System.out.println("Patients in BST:");
         inorder(root);

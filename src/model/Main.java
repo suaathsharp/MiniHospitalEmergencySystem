@@ -19,10 +19,12 @@ public class Main {
         bst.insert(patient2);
         bst.insert(patient3);
 
-        System.out.println("BST In-order:");
+        System.out.println("Before Delete:");
         bst.display();
 
-        System.out.println("\nSearch Patient 102:");
-        System.out.println(bst.search(102));
+        bst.delete(102);
+
+        System.out.println("\nAfter Delete:");
+        bst.display();
     }
 }
