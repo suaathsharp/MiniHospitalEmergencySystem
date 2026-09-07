@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -100,5 +102,72 @@ public class Main {
         history.displayHistory();
 
         System.out.println("\n===== ALL TESTS COMPLETED =====");
+
+        livePatientDemo(bst);
+    }
+
+    public static void livePatientDemo(PatientBST bst) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("\n===== LIVE PATIENT DEMO =====");
+
+        System.out.print("Enter Patient ID: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.print("Enter Name: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Enter Age: ");
+        int age = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.print("Enter Contact Number: ");
+        String contact = scanner.nextLine();
+
+        System.out.print("Enter Medical Condition: ");
+        String condition = scanner.nextLine();
+
+        Patient patient = new Patient(
+                id, name, age, contact, condition);
+
+        bst.insert(patient);
+
+        System.out.println("\nPatient added successfully.");
+
+        System.out.println("\n--- Patients After Adding ---");
+        bst.display();
+
+        System.out.println("\n--- Search Live Patient ---");
+
+        System.out.print("Enter Patient ID to search: ");
+        int searchId = scanner.nextInt();
+
+        Patient found = bst.search(searchId);
+
+        if (found != null) {
+            System.out.println("Patient found:");
+            System.out.println(found);
+        } else {
+            System.out.println("Patient not found.");
+        }
+
+        System.out.println("\n--- Delete Live Patient ---");
+
+        System.out.print("Enter Patient ID to delete: ");
+        int deleteId = scanner.nextInt();
+
+        if (bst.search(deleteId) != null) {
+            bst.delete(deleteId);
+            System.out.println("Patient deleted successfully.");
+        } else {
+            System.out.println("Patient not found.");
+        }
+
+        System.out.println("\n--- Patients After Deletion ---");
+        bst.display();
+
+        scanner.close();
     }
 }
