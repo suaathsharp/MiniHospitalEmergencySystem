@@ -4,25 +4,29 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Treatment treatment1 = new Treatment(
-                1, 101, "Dr. Silva", "First Aid", "07-09-2026");
+        Visit visit1 = new Visit(
+                1, "07-09-2026", "Dr. Silva", "Accident", "First Aid");
 
-        Treatment treatment2 = new Treatment(
-                2, 102, "Dr. Ahmed", "Pain Treatment", "07-09-2026");
+        Visit visit2 = new Visit(
+                2, "07-09-2026", "Dr. Ahmed", "Chest Pain", "Pain Treatment");
 
-        Treatment treatment3 = new Treatment(
-                3, 103, "Dr. Kumar", "Fever Treatment", "07-09-2026");
+        Visit visit3 = new Visit(
+                3, "07-09-2026", "Dr. Kumar", "Fever", "Fever Treatment");
 
-        EmergencyStack stack = new EmergencyStack();
+        VisitHistory history = new VisitHistory();
 
-        stack.push(treatment1);
-        stack.push(treatment2);
-        stack.push(treatment3);
+        history.addVisit(visit1);
+        history.addVisit(visit2);
+        history.addVisit(visit3);
 
-        stack.displayStack();
+        history.displayHistory();
 
-        stack.pop();
+        System.out.println("\nSearch Visit 2:");
+        System.out.println(history.searchVisit(2));
 
-        stack.displayStack();
+        history.removeVisit(2);
+
+        System.out.println("\nAfter Removing Visit 2:");
+        history.displayHistory();
     }
 }
