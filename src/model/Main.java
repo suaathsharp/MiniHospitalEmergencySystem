@@ -5,26 +5,24 @@ public class Main {
     public static void main(String[] args) {
 
         Patient patient1 = new Patient(
-                103, "Kamal", 45, "0773456789", "Fever");
-
-        Patient patient2 = new Patient(
                 101, "Suaath", 24, "0771234567", "Accident");
 
-        Patient patient3 = new Patient(
+        Patient patient2 = new Patient(
                 102, "Ahmed", 30, "0772345678", "Chest Pain");
 
-        PatientBST bst = new PatientBST();
+        Patient patient3 = new Patient(
+                103, "Kamal", 45, "0773456789", "Fever");
 
-        bst.insert(patient1);
-        bst.insert(patient2);
-        bst.insert(patient3);
+        EmergencyQueue queue = new EmergencyQueue();
 
-        System.out.println("Before Delete:");
-        bst.display();
+        queue.enqueue(patient1);
+        queue.enqueue(patient2);
+        queue.enqueue(patient3);
 
-        bst.delete(102);
+        queue.displayQueue();
 
-        System.out.println("\nAfter Delete:");
-        bst.display();
+        queue.dequeue();
+
+        queue.displayQueue();
     }
 }
