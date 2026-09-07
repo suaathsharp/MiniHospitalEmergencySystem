@@ -4,25 +4,25 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Patient patient1 = new Patient(
-                101, "Suaath", 24, "0771234567", "Accident");
+        Treatment treatment1 = new Treatment(
+                1, 101, "Dr. Silva", "First Aid", "07-09-2026");
 
-        Patient patient2 = new Patient(
-                102, "Ahmed", 30, "0772345678", "Chest Pain");
+        Treatment treatment2 = new Treatment(
+                2, 102, "Dr. Ahmed", "Pain Treatment", "07-09-2026");
 
-        Patient patient3 = new Patient(
-                103, "Kamal", 45, "0773456789", "Fever");
+        Treatment treatment3 = new Treatment(
+                3, 103, "Dr. Kumar", "Fever Treatment", "07-09-2026");
 
-        EmergencyQueue queue = new EmergencyQueue();
+        EmergencyStack stack = new EmergencyStack();
 
-        queue.enqueue(patient1);
-        queue.enqueue(patient2);
-        queue.enqueue(patient3);
+        stack.push(treatment1);
+        stack.push(treatment2);
+        stack.push(treatment3);
 
-        queue.displayQueue();
+        stack.displayStack();
 
-        queue.dequeue();
+        stack.pop();
 
-        queue.displayQueue();
+        stack.displayStack();
     }
 }
