@@ -4,6 +4,76 @@ public class Main {
 
     public static void main(String[] args) {
 
+        System.out.println("===== MINI HOSPITAL EMERGENCY MANAGEMENT SYSTEM =====");
+
+        System.out.println("\n--- BST TEST ---");
+
+        Patient patient1 = new Patient(
+                103, "Kamal", 45, "0773456789", "Fever");
+
+        Patient patient2 = new Patient(
+                101, "Suaath", 24, "0771234567", "Accident");
+
+        Patient patient3 = new Patient(
+                102, "Ahmed", 30, "0772345678", "Chest Pain");
+
+        PatientBST bst = new PatientBST();
+
+        bst.insert(patient1);
+        bst.insert(patient2);
+        bst.insert(patient3);
+
+        bst.display();
+
+        System.out.println("\nSearch Patient 102:");
+        System.out.println(bst.search(102));
+
+        bst.delete(102);
+
+        System.out.println("\nAfter Delete Patient 102:");
+        bst.display();
+
+        System.out.println("\n--- QUEUE TEST ---");
+
+        EmergencyQueue queue = new EmergencyQueue();
+
+        queue.enqueue(patient1);
+        queue.enqueue(patient2);
+        queue.enqueue(patient3);
+
+        queue.displayQueue();
+
+        queue.dequeue();
+
+        System.out.println("\nAfter Dequeue:");
+        queue.displayQueue();
+
+        System.out.println("\n--- STACK TEST ---");
+
+        Treatment treatment1 = new Treatment(
+                1, 101, "Dr. Silva", "First Aid", "07-09-2026");
+
+        Treatment treatment2 = new Treatment(
+                2, 102, "Dr. Ahmed", "Pain Treatment", "07-09-2026");
+
+        Treatment treatment3 = new Treatment(
+                3, 103, "Dr. Kumar", "Fever Treatment", "07-09-2026");
+
+        EmergencyStack stack = new EmergencyStack();
+
+        stack.push(treatment1);
+        stack.push(treatment2);
+        stack.push(treatment3);
+
+        stack.displayStack();
+
+        stack.pop();
+
+        System.out.println("\nAfter Pop:");
+        stack.displayStack();
+
+        System.out.println("\n--- LINKED LIST TEST ---");
+
         Visit visit1 = new Visit(
                 1, "07-09-2026", "Dr. Silva", "Accident", "First Aid");
 
@@ -28,5 +98,7 @@ public class Main {
 
         System.out.println("\nAfter Removing Visit 2:");
         history.displayHistory();
+
+        System.out.println("\n===== ALL TESTS COMPLETED =====");
     }
 }
